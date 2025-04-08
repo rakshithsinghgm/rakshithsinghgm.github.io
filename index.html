@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madison Hills - Fashion Stylist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        /* Grid Container */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
+            gap: 10px;
+            max-width: 1000px;
+            margin: 0 auto;
+            border: 8px solid #000;
+        }
+
+        /* Mondrian-inspired styling for sections */
+        .section {
+            padding: 30px;
+            position: relative;
+            border: 8px solid #000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: #fff;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid #000;
+            overflow: hidden;
+            margin-left: 20px;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contact {
+            background-color: #0056b3; /* Mondrian blue */
+            color: #fff;
+        }
+
+        .experience {
+            background-color: #fff;
+            grid-row: span 2;
+        }
+
+        .education {
+            background-color: #ffdd00; /* Mondrian yellow */
+        }
+
+        .skills {
+            background-color: #fff;
+        }
+
+        .awards {
+            background-color: #dd0000; /* Mondrian red */
+            color: #fff;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-transform: lowercase;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+            text-transform: lowercase;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            opacity: 0.8;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.5;
+        }
+
+        .job-date, .edu-date {
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            opacity: 0.7;
+            font-style: italic;
+        }
+
+        .skill-item {
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+        }
+
+        .award-item {
+            margin-bottom: 20px;
+        }
+
+        .title {
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            text-align: center;
+            padding: 8px 0;
+            border-bottom: 3px solid currentColor;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .contact p {
+            margin-bottom: 10px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-pic {
+                margin: 20px 0 0 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <!-- Header Section -->
+        <div class="section header">
+            <div class="header-text">
+                <h1>madison hills</h1>
+                <h2>fashion stylist</h2>
+            </div>
+            <div class="profile-pic">
+                <img src="/api/placeholder/400/400" alt="Madison Hills Profile">
+            </div>
+        </div>
+        
+        <!-- Contact Section -->
+        <div class="section contact">
+            <div class="title">Contact Info</div>
+            <p>123-456-7890</p>
+            <p>hello@madisonhills.com</p>
+            <p>www.madisonhills.com</p>
+            <p>New York</p>
+        </div>
+        
+        <!-- Experience Section -->
+        <div class="section experience">
+            <div class="title">Experience</div>
+            
+            <h3>Lush Magazine | Senior Fashion Stylist</h3>
+            <p class="job-date">2014-2017</p>
+            
+            <h3>Debbie's Wardrobe | Junior Fashion Stylist</h3>
+            <p class="job-date">2012-2014</p>
+            
+            <h3>Kick Style | Assistant Fashion Stylist</h3>
+            <p class="job-date">2010-2012</p>
+            
+            <h3>Mega Sense | Fashion Stylist Intern</h3>
+            <p class="job-date">2008-2010</p>
+        </div>
+        
+        <!-- Education Section -->
+        <div class="section education">
+            <div class="title">Education & Training</div>
+            
+            <h3>Fashion Styling Training</h3>
+            <h4>Fashion Institute of Technology, New York</h4>
+            <p class="edu-date">May 2008 - June 2009</p>
+            
+            <h3>BA in Fashion Design</h3>
+            <h4>New Fashion School, Maine</h4>
+            <p class="edu-date">Class of 2008</p>
+            
+            <h3>Associate Degree in Fashion Design</h3>
+            <h4>New Fashion School, Maine</h4>
+            <p class="edu-date">Class of 2004</p>
+        </div>
+        
+        <!-- Skills Section -->
+        <div class="section skills">
+            <div class="title">Skills</div>
+            
+            <p class="skill-item">Celebrity Styling</p>
+            <p class="skill-item">Style Advice</p>
+            <p class="skill-item">Outfit Selection</p>
+            <p class="skill-item">Personal Style Analysis</p>
+            <p class="skill-item">Wardrobe Styling</p>
+            <p class="skill-item">Style Management</p>
+        </div>
+        
+        <!-- Awards Section -->
+        <div class="section awards">
+            <div class="title">Awards & Recognition</div>
+            
+            <h3>NY Designer of the Year</h3>
+            <p class="award-item">NY Fashion Week, 2013</p>
+            
+            <h3>Youngest Stylist in Maine</h3>
+            <p class="award-item">Maine Fashion Week, 2010</p>
+        </div>
+    </div>
+</body>
+</html>
