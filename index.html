@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madison Hills - Fashion Stylist</title>
+    <title>Rakshith Sudhir Singh - Computer Vision Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Base Styles */
         * {
@@ -18,45 +19,90 @@
 
         body {
             background-color: #f5f5f5;
-            padding: 20px;
+            padding: 15px;
         }
 
         /* Grid Container */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: auto;
-            gap: 10px;
+            grid-template-areas: 
+                "header header"
+                "about about"
+                "experience education"
+                "experience skills"
+                "awards contact";
+            gap: 7px;
             max-width: 1000px;
             margin: 0 auto;
-            border: 8px solid #000;
+            border: 5px solid #000;
+            background-color: #000; /* Make the gap between sections black */
         }
 
         /* Mondrian-inspired styling for sections */
         .section {
             padding: 30px;
             position: relative;
-            border: 8px solid #000;
+            border: 5px solid #000;
             display: flex;
             flex-direction: column;
         }
 
+        /* Section placement */
         .header {
-            background-color: #fff;
-            padding: 30px;
+            grid-area: header;
+            background-color: #0056b3; /* Mondrian blue */
+            padding: 25px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            color: #fff;
+        }
+        
+        .about-me {
+            grid-area: about;
+            background-color: #fff;
+        }
+        
+        .contact {
+            grid-area: contact;
+            background-color: #dd0000; /* Mondrian red */
+            color: #fff;
+        }
+
+        .experience {
+            grid-area: experience;
+            background-color: #ffdd00; /* Mondrian yellow */
+        }
+
+        .education {
+            grid-area: education;
+            background-color: #fff;
+        }
+
+        .skills {
+            grid-area: skills;
+            background-color: #fff;
+        }
+
+        .awards {
+            grid-area: awards;
+            background-color: #fff;
         }
 
         .header-text {
             flex: 1;
         }
 
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .profile-pic {
             width: 120px;
             height: 120px;
-            border-radius: 50%;
             border: 5px solid #000;
             overflow: hidden;
             margin-left: 20px;
@@ -68,27 +114,23 @@
             object-fit: cover;
         }
 
-        .contact {
-            background-color: #0056b3; /* Mondrian blue */
+        .social-icons {
+            display: flex;
+            margin-top: 15px;
+            justify-content: center;
+        }
+
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            margin: 0 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
             color: #fff;
-        }
-
-        .experience {
-            background-color: #fff;
-            grid-row: span 2;
-        }
-
-        .education {
-            background-color: #ffdd00; /* Mondrian yellow */
-        }
-
-        .skills {
-            background-color: #fff;
-        }
-
-        .awards {
-            background-color: #dd0000; /* Mondrian red */
-            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
         }
 
         /* Typography */
@@ -96,17 +138,17 @@
             font-size: 3.2rem;
             font-weight: 700;
             margin-bottom: 5px;
-            text-transform: lowercase;
             letter-spacing: -1px;
+            color: inherit;
         }
 
         h2 {
             font-size: 1.6rem;
             margin-bottom: 20px;
             font-weight: 400;
-            text-transform: lowercase;
             font-family: 'Montserrat', sans-serif;
             letter-spacing: 2px;
+            color: inherit;
         }
 
         h3 {
@@ -125,7 +167,7 @@
 
         p {
             font-size: 1rem;
-            margin-bottom: 5px;
+            margin-bottom: 15px;
             font-family: 'Montserrat', sans-serif;
             line-height: 1.5;
         }
@@ -162,10 +204,88 @@
             margin-bottom: 10px;
         }
 
+        /* List Styling */
+        ul {
+            list-style-type: none;
+            margin-bottom: 15px;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 8px;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.5;
+        }
+
+        ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #0056b3;
+        }
+
+        /* Experience Bullet Points */
+        .experience-bullet {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .experience-bullet:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Patent List */
+        .patent-list {
+            counter-reset: patent-counter;
+            list-style-type: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .patent-item {
+            counter-increment: patent-counter;
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.4;
+        }
+
+        .patent-item:before {
+            content: counter(patent-counter) ".";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+        /* Section Headers */
+        .section-subheader {
+            font-weight: 600;
+            margin: 15px 0 8px 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #0056b3;
+        }
+
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .grid-container {
                 grid-template-columns: 1fr;
+                grid-template-areas: 
+                    "header"
+                    "about"
+                    "experience"
+                    "education"
+                    "skills"
+                    "awards"
+                    "contact";
             }
             
             .section {
@@ -185,8 +305,8 @@
                 text-align: center;
             }
 
-            .profile-pic {
-                margin: 20px 0 0 0;
+            .header-right {
+                margin-top: 20px;
             }
         }
     </style>
@@ -196,78 +316,119 @@
         <!-- Header Section -->
         <div class="section header">
             <div class="header-text">
-                <h1>madison hills</h1>
-                <h2>fashion stylist</h2>
+                <h1>Rakshith Sudhir Singh</h1>
+                <h2>Computer Vision Engineer</h2>
             </div>
-            <div class="profile-pic">
-                <img src="/api/placeholder/400/400" alt="Madison Hills Profile">
+            <div class="header-right">
+                <div class="profile-pic">
+                    <img src="./profile_pic_cropped.png" alt="Rakshith Sudhir Singh Profile Picture">
+                </div>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon"><i class="far fa-envelope"></i></a>
+                </div>
             </div>
+        </div>
+        
+        <!-- About Me Section -->
+        <div class="section about-me">
+            <div class="title">About Me</div>
+            <p>I'm Rakshith "Rak" Singh, a Software Engineer and Computer Vision specialist currently serving as a Perception Systems Engineer at Brunswick's Boating Intelligence (BI) Design Lab. 
+            My work focuses on leading innovative R&D projects leveraging computer vision and artificial intelligence to address critical challenges faced by recreational boaters.</p>
+            
+            <p>With over nine patents filed in advanced perception technologies, my solutions have consistently gained recognition from senior leadership, leading several projects toward successful production adoption. 
+            I'm passionate about identifying real-world problems and creating practical, technology-driven solutions that enhance boating safety, efficiency, and enjoyment.</p>
+            
+            <p>Over the past five years, I've immersed myself in the fields of robotics, autonomous systems, and deep learning. My expertise encompasses the full spectrum of computer vision applications - 
+            from prototyping innovative concepts to deploying robust, scalable solutions. I'm driven by curiosity, collaboration, and a commitment to leveraging emerging technologies to deliver impactful solutions.</p>
         </div>
         
         <!-- Contact Section -->
         <div class="section contact">
             <div class="title">Contact Info</div>
-            <p>123-456-7890</p>
-            <p>hello@madisonhills.com</p>
-            <p>www.madisonhills.com</p>
-            <p>New York</p>
+            <p>978-328-7717</p>
+            <p>rakshithsinghgm@gmail.com</p>
+            <p>rakshith.singh@brunswick.com</p>
+            <p>Champaign, Illinois</p>
         </div>
         
         <!-- Experience Section -->
         <div class="section experience">
             <div class="title">Experience</div>
             
-            <h3>Lush Magazine | Senior Fashion Stylist</h3>
-            <p class="job-date">2014-2017</p>
+            <h3>Technical Associate Computer Vision | Brunswick Corp</h3>
+            <p class="job-date">2021 - Present</p>
             
-            <h3>Debbie's Wardrobe | Junior Fashion Stylist</h3>
-            <p class="job-date">2012-2014</p>
+            <div class="experience-bullet">I manage and lead Brunswick's Computer Vision R&D, working towards developing computer vision solutions such as Vessel Blind-spot Monitoring, Obstacle Avoidance, etc. My team and I test new product ideas by developing proof of concepts (PoC) to validate them, present them to senior leadership for feedback, and guide the organization's future product roadmaps.</div>
             
-            <h3>Kick Style | Assistant Fashion Stylist</h3>
-            <p class="job-date">2010-2012</p>
+            <div class="experience-bullet">Transitioning R&D solutions to production solutions - I developed several PoC solutions, which were presented to senior leadership, including the CEO, for production approval. I work across various divisions of the organization to align with business stakeholders to understand end-user pain points and transition R&D projects into production.</div>
             
-            <h3>Mega Sense | Fashion Stylist Intern</h3>
-            <p class="job-date">2008-2010</p>
+            <div class="experience-bullet">I led the development of the organization's end-to-end computer vision model development pipeline, which chains various cloud-based AI/ML services and hardware solutions for image data collection, labeling, storage, model training, evaluation, and model deployment on edge hardware.</div>
+            
+            <div class="experience-bullet">Filed eight patents to the USPTO - Generated several dozen IP disclosures and filed eight patents in Computer Vision and AI. Currently drafting three additional filings.</div>
+            
+            <div class="experience-bullet">I spearheaded the development of the Marine Vision dataset and computer vision models, a project of significant scale. Working with external collaborators, we collected, processed, and labeled an image dataset with hundreds of thousands of labeled images. I also developed a range of computer vision models, each addressing different computer vision tasks such as Image Classification, Object Detection, Pose Estimation, and Image Segmentation.</div>
+            
+            <div class="experience-bullet">Production experience with Computer Vision - I developed Brunswick's Computer Vision model evaluation methodology to understand model production readiness and develop model explainability (XAI) to validate the computer vision model deployed on a production solution for a level three autonomous system for vessel auto-docking.</div>
+            
+            <h3>Marine Robotics Research Assistant | University of Massachusetts Lowell</h3>
+            <p class="job-date">2020 - 2021</p>
+            
+            <div class="experience-bullet">I worked on the perception system of a life-size Autonomous Boat Prototype on a joint-project with MIT. Project funded by the Lockheed Martin Corporation.</div>
+            
+            <div class="experience-bullet">I was responsible for developing and integrating an object detection model for detecting Marine Vessels and other inanimate objects in the boat's video stream using Robot Operating System (ROS), Python, and Yolo Darknet library.</div>
+            
+            <div class="experience-bullet">I developed an image dataset with over 12,000 images for training and tuning a deep neural network.</div>
         </div>
         
         <!-- Education Section -->
         <div class="section education">
             <div class="title">Education & Training</div>
             
-            <h3>Fashion Styling Training</h3>
-            <h4>Fashion Institute of Technology, New York</h4>
-            <p class="edu-date">May 2008 - June 2009</p>
+            <h3>Master's in Computer Science</h3>
+            <h4>University of Massachusetts Lowell</h4>
+            <p class="edu-date">August 2019 - May 2021</p>
             
-            <h3>BA in Fashion Design</h3>
-            <h4>New Fashion School, Maine</h4>
-            <p class="edu-date">Class of 2008</p>
-            
-            <h3>Associate Degree in Fashion Design</h3>
-            <h4>New Fashion School, Maine</h4>
-            <p class="edu-date">Class of 2004</p>
+            <h3>Bachelor's in Information Science and Technology</h3>
+            <h4>PESIT, South Campus, Bangalore, Karnataka, India</h4>
+            <p class="edu-date">August 2013 - May 2017</p>
         </div>
         
         <!-- Skills Section -->
         <div class="section skills">
             <div class="title">Skills</div>
             
-            <p class="skill-item">Celebrity Styling</p>
-            <p class="skill-item">Style Advice</p>
-            <p class="skill-item">Outfit Selection</p>
-            <p class="skill-item">Personal Style Analysis</p>
-            <p class="skill-item">Wardrobe Styling</p>
-            <p class="skill-item">Style Management</p>
+            <div class="section-subheader">Areas of Expertise:</div>
+            <p>Computer Vision & Deep Learning, Robotics & Autonomous Systems, Software Engineering & Agile Development, Cloud & Edge Computing, Web Application Development</p>
+            
+            <div class="section-subheader">Technical Proficiencies:</div>
+            <ul>
+                <li>Python, C++, ROS (1 & 2), JavaScript, Java</li>
+                <li>Learning Frameworks: PyTorch, TensorFlow, CUDA</li>
+                <li>Perception Hardware: Mono & Stereo Cameras, LiDAR</li>
+                <li>DevOps & Cloud Services: Docker, Git, Azure ML, Azure DevOps, Azure Data Lake, Azure IoT Hub</li>
+            </ul>
+            
+            <div class="section-subheader">Professional Strengths:</div>
+            <p>Leading R&D initiatives and managing projects from concept to deployment. Mentoring and team leadership. Intellectual property development and strategic innovation. Resource and budget management. Vendor relations and cross-functional collaboration.</p>
         </div>
         
         <!-- Awards Section -->
         <div class="section awards">
-            <div class="title">Awards & Recognition</div>
+            <div class="title">Applied Patents</div>
             
-            <h3>NY Designer of the Year</h3>
-            <p class="award-item">NY Fashion Week, 2013</p>
-            
-            <h3>Youngest Stylist in Maine</h3>
-            <p class="award-item">Maine Fashion Week, 2010</p>
+            <ul class="patent-list">
+                <li class="patent-item">US18/312,065 SYSTEM AND METHODS FOR SURFER POSE ESTIMATION</li>
+                <li class="patent-item">US18/355,120 WAKESURF MONITORING SYSTEM AND METHOD</li>
+                <li class="patent-item">US18/457,800 SYSTEM AND METHODS FOR TOW SPORTS MONITORING</li>
+                <li class="patent-item">US187960460 Machine Learning-Based Sonar Up-sampling</li>
+                <li class="patent-item">US18786781 Empty Dock Spot Estimation Using Computer Vision</li>
+                <li class="patent-item">US18779873 AI Channel Marker Helper</li>
+                <li class="patent-item">US18778104 Facial Recognition based tow boat profile selection</li>
+                <li class="patent-item">US18770382 Depth-Aware Auto-Docking Path-Planner</li>
+                <li class="patent-item">US17/944,410 NAVIGATION CONTROL SYSTEM AND METHOD FOR A MARINE VESSEL</li>
+            </ul>
         </div>
     </div>
 </body>
